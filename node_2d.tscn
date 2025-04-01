@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1h82u8xghsmk"]
+
+[ext_resource type="Texture2D" uid="uid://wckkphbvvbhc" path="res://blau.jpg" id="1_0e48y"]
+[ext_resource type="PackedScene" uid="uid://b7nclcsvgm8k8" path="res://bola_blanca.tscn" id="2_epypp"]
+[ext_resource type="Script" uid="uid://b7qhudmtde8mc" path="res://pilota.gd" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://jynaso55p8pj" path="res://blanc.jpg" id="4_0hol4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Blanc" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(576, 324.5)
+scale = Vector2(1.56522, 0.494648)
+texture = ExtResource("4_0hol4")
+
+[node name="Blau" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576.5, 323.5)
+scale = Vector2(2.01277, 1.95146)
+texture = ExtResource("1_0e48y")
+
+[node name="Pilota" parent="." instance=ExtResource("2_epypp")]
+position = Vector2(185, 226)
+scale = Vector2(0.0621019, 0.0621019)
+script = ExtResource("3_epypp")

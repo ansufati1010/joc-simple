@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://balkj65k68vb6"]
+
+[ext_resource type="Texture2D" uid="uid://de0chey5768as" path="res://pilota.webp" id="1_tuwqn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tuwqn"]
+radius = 636.317
+
+[node name="Pilota" type="Sprite2D"]
+scale = Vector2(0.121019, 0.121019)
+texture = ExtResource("1_tuwqn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16.5263, 0)
+shape = SubResource("CircleShape2D_tuwqn")
