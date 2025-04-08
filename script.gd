@@ -4,7 +4,7 @@ var velocitat := 350
 var direccio := Vector2.ZERO
 
 func _ready() -> void:
-	position = Vector2(100,50)
+	position = Vector2(100, 200)
 	
 func _process(delta: float) -> void:
 	

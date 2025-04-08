@@ -1,25 +1,160 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1h82u8xghsmk"]
+[gd_scene load_steps=14 format=3 uid="uid://b1h82u8xghsmk"]
 
 [ext_resource type="Texture2D" uid="uid://wckkphbvvbhc" path="res://blau.jpg" id="1_0e48y"]
-[ext_resource type="PackedScene" uid="uid://b7nclcsvgm8k8" path="res://bola_blanca.tscn" id="2_epypp"]
-[ext_resource type="Script" uid="uid://b7qhudmtde8mc" path="res://pilota.gd" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://de0chey5768as" path="res://pilota.webp" id="3_epypp"]
+[ext_resource type="Script" uid="uid://b7qhudmtde8mc" path="res://pilota.gd" id="3_kdubu"]
 [ext_resource type="Texture2D" uid="uid://jynaso55p8pj" path="res://blanc.jpg" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://dlvqn64g5n474" path="res://forat1.gd" id="5_d21ai"]
+[ext_resource type="Texture2D" uid="uid://3j8j02qy2362" path="res://forat.png" id="5_q6r6c"]
+[ext_resource type="Script" uid="uid://chb0qmmb23l3a" path="res://forat2.gd" id="7_rj586"]
+[ext_resource type="Script" uid="uid://b1j0abouqbxqi" path="res://forat3.gd" id="8_ir8iy"]
+[ext_resource type="Script" uid="uid://djmu4fdwpup21" path="res://forat4.gd" id="9_hqns4"]
+[ext_resource type="Script" uid="uid://oafw5sf5fivh" path="res://forat5.gd" id="10_x0ka3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(22, 648)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
+radius = 33.0151
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdubu"]
+radius = 43.0116
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Blanc" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(576, 324.5)
-scale = Vector2(1.56522, 0.494648)
-texture = ExtResource("4_0hol4")
-
 [node name="Blau" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(576.5, 323.5)
-scale = Vector2(2.01277, 1.95146)
+position = Vector2(563.5, 324)
+scale = Vector2(2.05657, 2.09709)
 texture = ExtResource("1_0e48y")
 
-[node name="Pilota" parent="." instance=ExtResource("2_epypp")]
-position = Vector2(185, 226)
-scale = Vector2(0.0621019, 0.0621019)
-script = ExtResource("3_epypp")
+[node name="Blanc" type="Sprite2D" parent="."]
+position = Vector2(1139.5, 324)
+scale = Vector2(0.0339675, 0.495413)
+texture = ExtResource("4_0hol4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Blanc"]
+position = Vector2(-368, -654)
+scale = Vector2(33.4546, 2.01852)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blanc/StaticBody2D"]
+position = Vector2(11, 324)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="Blanc2" type="Sprite2D" parent="."]
+position = Vector2(11, 324)
+scale = Vector2(0.0298913, 0.495413)
+texture = ExtResource("4_0hol4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Blanc2"]
+position = Vector2(-368, -654)
+scale = Vector2(33.4546, 2.01852)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blanc2/StaticBody2D"]
+position = Vector2(11, 324)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="Blanc3" type="Sprite2D" parent="."]
+position = Vector2(574.5, 637.5)
+scale = Vector2(1.50136, 0.016055)
+texture = ExtResource("4_0hol4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Blanc3"]
+position = Vector2(-368, -654)
+scale = Vector2(33.4546, 2.01852)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blanc3/StaticBody2D"]
+position = Vector2(11, 324)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="Blanc4" type="Sprite2D" parent="."]
+position = Vector2(574.5, 12.5)
+scale = Vector2(1.50136, 0.0191131)
+texture = ExtResource("4_0hol4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Blanc4"]
+position = Vector2(-368, -654)
+scale = Vector2(33.4546, 2.01852)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blanc4/StaticBody2D"]
+position = Vector2(11, 324)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 525.0
+offset_top = 47.0
+offset_right = 619.0
+offset_bottom = 70.0
+text = "PUNTUACIÓ"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("3_kdubu")
+
+[node name="Pilota" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(179.58, 225)
+scale = Vector2(0.0525478, 0.0525478)
+texture = ExtResource("3_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(179, 225)
+shape = SubResource("CircleShape2D_0hol4")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("5_d21ai")
+
+[node name="Forat" type="Sprite2D" parent="Area2D"]
+position = Vector2(179, 225)
+scale = Vector2(0.165039, 0.165039)
+texture = ExtResource("5_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(179, 225)
+shape = SubResource("CircleShape2D_kdubu")
+
+[node name="Area2D2" type="Area2D" parent="."]
+script = ExtResource("7_rj586")
+
+[node name="Forat" type="Sprite2D" parent="Area2D2"]
+position = Vector2(179, 225)
+scale = Vector2(0.165039, 0.165039)
+texture = ExtResource("5_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(179, 225)
+shape = SubResource("CircleShape2D_kdubu")
+
+[node name="Area2D3" type="Area2D" parent="."]
+script = ExtResource("8_ir8iy")
+
+[node name="Forat" type="Sprite2D" parent="Area2D3"]
+position = Vector2(179, 225)
+scale = Vector2(0.165039, 0.165039)
+texture = ExtResource("5_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(179, 225)
+shape = SubResource("CircleShape2D_kdubu")
+
+[node name="Area2D4" type="Area2D" parent="."]
+script = ExtResource("9_hqns4")
+
+[node name="Forat" type="Sprite2D" parent="Area2D4"]
+position = Vector2(179, 225)
+scale = Vector2(0.165039, 0.165039)
+texture = ExtResource("5_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(179, 225)
+shape = SubResource("CircleShape2D_kdubu")
+
+[node name="Area2D5" type="Area2D" parent="."]
+script = ExtResource("10_x0ka3")
+
+[node name="Forat" type="Sprite2D" parent="Area2D5"]
+position = Vector2(179, 225)
+scale = Vector2(0.165039, 0.165039)
+texture = ExtResource("5_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2(179, 225)
+shape = SubResource("CircleShape2D_kdubu")
